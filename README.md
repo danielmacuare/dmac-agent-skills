@@ -23,6 +23,12 @@ Collection of Claude Code agent skills.
 
 Each skill lives in `skills/<name>/` with a `SKILL.md` (frontmatter: `name`, `description`, optional `disable-model-invocation`) plus any supporting scripts/docs/licenses.
 
+## Config
+
+`docs/issue-tracker.md` is the global issue-tracker config — which tracker to publish to (GitHub via `gh`), how to fetch and create issues, and the triage label vocabulary. `code-review`, `to-spec`, and `to-tickets` read it.
+
+A project overrides it with its own `docs/agents/issue-tracker.md`; the skills check that first and fall back to the global file at `~/.agents/docs/issue-tracker.md`.
+
 ## Usage
 
 Point Claude Code at this repo (or symlink `skills/`) so skills load automatically, or invoke a skill by name via the `Skill` tool / `/<skill-name>` slash command.

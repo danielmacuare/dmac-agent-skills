@@ -117,6 +117,26 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-07-11T07:32:13.950Z",
       "updatedAt": "2026-07-11T07:32:13.950Z"
+    },
+    "implement": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/implement/SKILL.md",
+      "skillFolderHash": "aa65990650368f020166bc28d6c05b5b34592c97",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-07-11T15:50:08.022Z",
+      "updatedAt": "2026-07-11T15:50:08.022Z"
+    },
+    "triage": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/triage/SKILL.md",
+      "skillFolderHash": "3e7a49151929d884365035cb322de099c15b33d3",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-07-12T15:08:31.332Z",
+      "updatedAt": "2026-07-12T15:08:31.332Z"
     }
   },
   "dismissed": {
