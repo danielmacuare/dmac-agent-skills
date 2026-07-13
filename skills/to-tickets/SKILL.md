@@ -8,7 +8,9 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-Issue-tracker workflow and triage label vocabulary: read `docs/agents/issue-tracker.md` in the current project if it exists; otherwise `~/.agents/docs/issue-tracker.md`.
+Issue-tracker workflow and triage label vocabulary: read `docs/agents/issue-tracker.md` in the current project. If it doesn't exist, the project hasn't been set up — run `/setup-repos` first.
+
+Domain doc conventions: read `docs/agents/domain.md` in the current project if it exists.
 
 ## Process
 

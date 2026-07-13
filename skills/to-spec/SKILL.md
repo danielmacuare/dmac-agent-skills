@@ -6,7 +6,9 @@ disable-model-invocation: true
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
 
-Issue-tracker workflow and triage label vocabulary: read `docs/agents/issue-tracker.md` in the current project if it exists; otherwise `~/.agents/docs/issue-tracker.md`.
+Issue-tracker workflow and triage label vocabulary: read `docs/agents/issue-tracker.md` in the current project. If it doesn't exist, the project hasn't been set up — run `/setup-repos` first.
+
+Domain doc conventions: read `docs/agents/domain.md` in the current project if it exists.
 
 ## Process
 

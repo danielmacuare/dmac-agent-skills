@@ -10,7 +10,9 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 
 Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
 
-Issue-tracker workflow: read `docs/agents/issue-tracker.md` in the current project if it exists; otherwise `~/.agents/docs/issue-tracker.md`.
+Issue-tracker workflow: read `docs/agents/issue-tracker.md` in the current project. If it doesn't exist, the project hasn't been set up — run `/setup-repos` first.
+
+Domain doc conventions: read `docs/agents/domain.md` in the current project if it exists.
 
 ## Process
 

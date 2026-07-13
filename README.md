@@ -2,6 +2,8 @@
 
 Collection of Claude Code agent skills.
 
+Some of these skills are heavily inspired by Matt Pocock skills: <https://github.com/mattpocock/skills/tree/main> and customised to my use case. Some other skills are completely my own.
+
 ## Skills
 
 | Skill | Purpose |
@@ -25,9 +27,13 @@ Each skill lives in `skills/<name>/` with a `SKILL.md` (frontmatter: `name`, `de
 
 ## Config
 
-`docs/issue-tracker.md` is the global issue-tracker config — which tracker to publish to (GitHub via `gh`), how to fetch and create issues, and the triage label vocabulary. `code-review`, `to-spec`, and `to-tickets` read it.
+Config is per-project, not global. Run `/setup-repos` in a repo to scaffold it:
 
-A project overrides it with its own `docs/agents/issue-tracker.md`; the skills check that first and fall back to the global file at `~/.agents/docs/issue-tracker.md`.
+- `docs/agents/issue-tracker.md` — which tracker to publish to and how to fetch, create, comment, and label issues. `code-review`, `to-spec`, and `to-tickets` read it.
+- `docs/agents/triage-labels.md` — the label strings behind the five canonical triage roles. `triage` reads it.
+- `docs/agents/domain.md` — where `CONTEXT.md` and ADRs live, and the rules for reading them.
+
+A repo without these files hasn't been set up; skills that need them will say so.
 
 ## Usage
 

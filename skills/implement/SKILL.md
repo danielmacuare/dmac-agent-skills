@@ -6,6 +6,10 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec or tickets.
 
+Issue-tracker workflow: read `docs/agents/issue-tracker.md` in the current project. If it doesn't exist, the project hasn't been set up — run `/setup-repos` first.
+
+Domain doc conventions: read `docs/agents/domain.md` in the current project if it exists.
+
 Use /tdd where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
