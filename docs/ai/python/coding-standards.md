@@ -14,6 +14,7 @@ Read only the file(s) matching your current task:
 - `standards/04-type-hinting.md` — every `.py` file creation or modification (non-negotiable)
 - `standards/05-tooling.md` — before saving files or running tests
 - `standards/06-conventions.md` — HTTP calls, file path handling
+- `standards/07-cli-errors.md` — CLI entry points, error handling, exit codes
 
 ## Stack
 
