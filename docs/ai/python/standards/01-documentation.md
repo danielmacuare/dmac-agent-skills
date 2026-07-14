@@ -28,6 +28,7 @@ def process_bgp_peer(peer_ip: str) -> bool:
         ValueError: If the peer_ip is an invalid IPv4 format.
     """
     return True
+```
 
 ## 4. Others
 

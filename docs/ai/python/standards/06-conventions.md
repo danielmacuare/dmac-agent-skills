@@ -1,4 +1,4 @@
-# Coding Standards: Tooling & Execution
+# Coding Standards: Conventions
 
 > [META-INSTRUCTION FOR AI AGENTS]
 > Scope: Apply these rules when creating or modifying Python files.

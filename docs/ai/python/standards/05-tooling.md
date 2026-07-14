@@ -10,5 +10,5 @@
 
 ## 2. Static Analysis & Testing
 
-* Ensure code completely clears `pybasedright` strict typing thresholds before finalizing execution steps.
+* Ensure code completely clears `basedpyright` strict typing thresholds before finalizing execution steps.
 * Every feature change or implementation must be backed by a deterministic integration or unit test suite using `pytest`.

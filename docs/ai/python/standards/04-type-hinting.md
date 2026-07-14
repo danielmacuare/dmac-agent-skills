@@ -3,7 +3,7 @@
 > [META-INSTRUCTION FOR AI AGENTS]
 > Scope: Apply to every single Python file creation or modification. This rule group is non-negotiable.
 
-## 1. Python 3.10+ Modern Typings
+## 1. Modern Typings (Python 3.12+)
 
 * Use built-in generics directly (`list`, `dict`, `set`) instead of importing capitalized variants from the legacy `typing` module.
 * Use the native pipe operator (`|`) for union and optional evaluations. Never import `Union` or `Optional`.

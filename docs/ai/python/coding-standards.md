@@ -17,11 +17,12 @@ Read only the file(s) matching your current task:
 
 ## Stack
 
-- Python3.12+
-- uv for package management, python versions and and virtual environments
+- Python 3.12+
+- uv for package management, python versions and virtual environments
 - ruff for linting/formatting (replaces black + flake8)
-- pybasedright for type hinting
-- Typer for CLI Options
+- basedpyright for type checking
+- Typer for CLI options
+- rich for CLI output and tables
 
 ### Project structure
 
