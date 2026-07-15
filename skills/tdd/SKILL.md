@@ -9,6 +9,8 @@ TDD is the red → green loop. This skill is the reference that makes that loop 
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
+Coding standards: if the repo documents its own (`CODING_STANDARDS.md`, `CONTRIBUTING.md`, or whatever `docs/agents/standards.md` names), those win. Otherwise, for each language you touch, read `~/.agents/docs/ai/<lang>/coding-standards.md` if it exists — follow its Categories index and load only the numbered files matching your current task, not the whole tree. Test files are subject to the same standards as production code.
+
 ## What a good test is
 
 Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't. A good test reads like a specification — "user can checkout with valid cart" tells you exactly what capability exists — and survives refactors because it doesn't care about internal structure.

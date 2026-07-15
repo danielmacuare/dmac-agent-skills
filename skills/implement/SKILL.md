@@ -10,6 +10,8 @@ Issue-tracker workflow: read `docs/agents/issue-tracker.md` in the current proje
 
 Domain doc conventions: read `docs/agents/domain.md` in the current project if it exists.
 
+Coding standards: if the repo documents its own (`CODING_STANDARDS.md`, `CONTRIBUTING.md`, or whatever `docs/agents/standards.md` names), those win. Otherwise, for each language you touch, read `~/.agents/docs/ai/<lang>/coding-standards.md` if it exists — follow its Categories index and load only the numbered files matching your current task, not the whole tree.
+
 Use /tdd where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.

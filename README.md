@@ -32,8 +32,11 @@ Config is per-project, not global. Run `/setup-repos` in a repo to scaffold it:
 - `docs/agents/issue-tracker.md` — which tracker to publish to and how to fetch, create, comment, and label issues. `code-review`, `to-spec`, and `to-tickets` read it.
 - `docs/agents/triage-labels.md` — the label strings behind the five canonical triage roles. `triage` reads it.
 - `docs/agents/domain.md` — where `CONTEXT.md` and ADRs live, and the rules for reading them.
+- `docs/agents/standards.md` — the repo's languages and its standards precedence chain. `implement`, `tdd`, and `code-review` read it.
 
 A repo without these files hasn't been set up; skills that need them will say so.
+
+`docs/ai/<lang>/coding-standards.md` holds the global, per-language coding standards that apply across every repo — currently Python. A repo's own `CODING_STANDARDS.md` overrides them; the Fowler smell baseline in `code-review` backstops both.
 
 ## Usage
 

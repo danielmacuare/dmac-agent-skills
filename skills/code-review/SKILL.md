@@ -35,12 +35,17 @@ Look for the originating spec, in this order:
 
 ### 3. Identify the standards sources
 
-Anything in the repo that documents how code should be written, such as `CODING_STANDARDS.md` or `CONTRIBUTING.md`.
+Standards come from three tiers, in descending precedence:
 
-On top of whatever the repo documents, the Standards axis always carries the **smell baseline** below — a fixed set of Fowler code smells (_Refactoring_, ch.3) that applies even when a repo documents nothing. Two rules bind it:
+1. **The repo** — anything in it documenting how code should be written: `CODING_STANDARDS.md`, `CONTRIBUTING.md`, or whatever `docs/agents/standards.md` names.
+2. **The author's global standards** — for each language in the diff, `~/.agents/docs/ai/<lang>/coding-standards.md` if it exists (e.g. `python`). Follow its Categories index and load only the numbered files relevant to what the diff touches, not the whole tree. Where `docs/agents/standards.md` is absent, infer the language from the changed files' extensions.
+3. **The smell baseline** below — a fixed set of Fowler code smells (_Refactoring_, ch.3) that applies even when nothing else is documented.
 
-- **The repo overrides.** A documented repo standard always wins; where it endorses something the baseline would flag, suppress the smell.
+Three rules bind them:
+
+- **The nearer tier overrides.** A documented repo standard beats the global standards, which beat the baseline. Where a higher tier endorses something a lower one would flag, suppress the lower finding.
 - **Always a judgement call.** Each smell is a labelled heuristic ("possible Feature Envy"), never a hard violation — and, like any standard here, skip anything tooling already enforces.
+- **Cite the tier.** A finding must name which source it came from, so the reader can tell a house rule from a global one from a heuristic.
 
 Each smell reads *what it is* → *how to fix*; match it against the diff:
 
@@ -64,8 +69,9 @@ Send a single message with two `Agent` tool calls. Use the `general-purpose` sub
 **Standards sub-agent prompt** — include:
 
 - The full diff command and commit list.
-- The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full — the sub-agent has no other access to it.
-- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The standards-source files you resolved in step 3, as **paths the sub-agent can open** — repo-relative for tier 1, absolute (`~/.agents/docs/ai/<lang>/...`) for tier 2. Name which tier each path belongs to. The sub-agent won't find the global tree on its own.
+- **The smell baseline from step 3** pasted in full — the sub-agent has no other access to it.
+- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule) and its tier; and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls. Precedence: a repo standard overrides the global standards, which override the baseline; suppress a lower-tier finding the higher tier endorses. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** — include:
 

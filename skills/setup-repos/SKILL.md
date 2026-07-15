@@ -11,6 +11,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Issue tracker** — where issues live (GitHub by default; local markdown is also supported out of the box)
 - **Triage labels** — the strings used for the five canonical triage roles
 - **Domain docs** — where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
+- **Coding standards** — the repo's languages, and which standards win when the repo and the global trees disagree
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -26,6 +27,8 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/` — does this skill's prior output already exist?
 - `.scratch/` — sign that a local-markdown issue tracker convention is already in use
+- **Languages** — `pyproject.toml`, `go.mod`, `package.json`, `Cargo.toml`, `*.tf`, and what's actually under `src/`. Note which of these have a global standards tree at `~/.agents/docs/ai/<lang>/`.
+- **Repo-local standards** — `CODING_STANDARDS.md`, `CONTRIBUTING.md`, or similar at the repo root. These override the global trees.
 - Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.
 - Monorepo signals — a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. Present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
@@ -65,12 +68,16 @@ By default every label string equals its role name. On **yes**, write them as-is
 
 Offer **multi-context** — a root `CONTEXT-MAP.md` pointing to per-context `CONTEXT.md` files — only when exploration found monorepo signals. Then confirm which layout they want.
 
+**Section D — Coding standards.** State the languages exploration found and let the user correct them; that's the only question here. Don't ask about precedence — a repo-local standards file always wins over the global tree.
+
+This section records what was found; it doesn't create standards. Where a language has no global tree at `~/.agents/docs/ai/<lang>/`, say so plainly — `code-review` still applies its smell baseline, so an undocumented language isn't unreviewed.
+
 ### 3. Confirm and edit
 
 Show the user a draft of:
 
 - The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
-- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
+- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, `docs/agents/standards.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
 
@@ -102,6 +109,10 @@ The block:
 ### Domain docs
 
 [one-line summary of layout — "single-context" or "multi-context"]. See `docs/agents/domain.md`.
+
+### Coding standards
+
+[one-line summary — the repo's languages, and whether a repo-local standards file overrides the global tree]. See `docs/agents/standards.md`.
 ```
 
 Include the `### Triage labels` sub-block, and write `docs/agents/triage-labels.md`, only when `triage` is installed and Section B ran. When it isn't, both are omitted.
@@ -113,6 +124,7 @@ Then write the docs files using the seed templates in this skill folder as a sta
 - [issue-tracker-local.md](./issue-tracker-local.md) — local-markdown issue tracker
 - [triage-labels.md](./triage-labels.md) — label mapping (only if `triage` is installed)
 - [domain.md](./domain.md) — domain doc consumer rules + layout
+- [standards.md](./standards.md) — the repo's languages and its standards precedence chain
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
