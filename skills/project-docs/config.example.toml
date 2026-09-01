@@ -1,0 +1,8 @@
+# Copy this file to config.toml and adjust the paths for your machine.
+# config.toml is gitignored — it holds machine-specific roots, not skill logic.
+
+# Root of the shared SharePoint/OneDrive library containing SoWs and meeting notes.
+shared_root = "~/Library/CloudStorage/OneDrive-SharedLibraries-WWT/Deutsche Bank Automation Delivery - General"
+
+# Root of your personal OneDrive where this skill writes generated summaries and the cache.
+outputs_root = "~/Library/CloudStorage/OneDrive-WWT/Projects/outputs"
